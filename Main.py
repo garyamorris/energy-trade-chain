@@ -12,9 +12,9 @@ contract.initiate_trade()
 time.sleep(5)  # Wait for the delivery time to pass
 contract.confirm_delivery()
 
-# If delivery is not confirmed after a certain period, penalize the producer
+# If delivery is not confirmed after a certain period, penalise the producer
 time.sleep(5)  # Wait additional time to simulate late delivery
-contract.penalize_producer()
+contract.penalise_producer()
 
 # Display the blockchain
 for block in blockchain.chain:

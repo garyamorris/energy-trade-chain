@@ -3,6 +3,30 @@ import json
 
 
 class Block:
+    """
+    Initializes a new instance of the Block class.
+
+    Args:
+        index (int): The index of the block.
+        previous_hash (str): The hash of the previous block.
+        transactions (list): The list of transactions in the block.
+        timestamp (float): The timestamp of when the block was created.
+        nonce (int, optional): The nonce value used for mining. Defaults to 0.
+    """
+
+    """
+    Calculates the hash of the block.
+
+    Returns:
+        str: The calculated hash value.
+    """
+
+    """
+    Returns a string representation of the block.
+
+    Returns:
+        str: The string representation of the block.
+    """
     def __init__(self, index, previous_hash, transactions, timestamp, nonce=0):
         self.index = index
         self.previous_hash = previous_hash
