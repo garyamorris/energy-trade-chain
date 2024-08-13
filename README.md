@@ -19,9 +19,9 @@ To get started with energy-trade-chain, you need to have Python installed on you
 
 Once Python is installed, open your terminal or command prompt and navigate to the energy-trade-chain project directory. Use the following command:
 
-\`\`\`bash
+```bash
 cd /path/to/energy-trade-chain/
-\`\`\`
+```
 
 Replace `/path/to/energy-trade-chain/` with the actual path where you have cloned or downloaded the energy-trade-chain project.
 
@@ -29,8 +29,8 @@ Replace `/path/to/energy-trade-chain/` with the actual path where you have clone
 
 To start the energy-trade-chain simulation, execute the following command:
 
-\`\`\`bash
+```bash
 python Main.py
-\`\`\`
+```
 
 This command will initiate the energy-trade-chain simulation, allowing you to explore the various features of the project.
