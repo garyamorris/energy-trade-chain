@@ -65,15 +65,23 @@ class EnergyTradingContract:
 
     def confirm_delivery(self):
         if time.time() >= self.delivery_time:
-            self.blockchain.create_transaction({"from": "escrow", "to": self.producer, "amount": self.escrow})
+            # Store the amount to be released before resetting the escrow
+            amount_to_release = self.escrow
+            self.blockchain.create_transaction({
+                "from": "escrow",
+                "to": self.producer,
+                "amount": amount_to_release
+            })
             self.status = "Completed"
             self.escrow = 0
-            print(f"Delivery confirmed. {self.escrow} released to producer.")
+            print(
+                f"Delivery confirmed. {amount_to_release} released to producer."
+            )
         else:
             print("Delivery time has not been reached.")
 
     def penalise_producer(self):
-        if time.time() >= self.delivery_time + 60:  # 60 seconds grace period
+        if time.time() >= self.delivery_time + 10:  # 10 seconds grace period
             penalty = self.escrow * 0.1
             self.blockchain.create_transaction({"from": "escrow", "to": self.consumer, "amount": self.escrow - penalty})
             self.blockchain.create_transaction({"from": "escrow", "to": self.producer, "amount": penalty})

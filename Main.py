@@ -16,6 +16,9 @@ contract.confirm_delivery()
 time.sleep(5)  # Wait additional time to simulate late delivery
 contract.penalise_producer()
 
+# Mine pending transactions
+blockchain.mine_pending_transactions('Miner-address')
+
 # Display the blockchain
 for block in blockchain.chain:
     print(block)
