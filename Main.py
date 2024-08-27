@@ -6,10 +6,16 @@ from EnergyTradingContract import EnergyTradingContract
 blockchain = Blockchain()
 
 # Energy trading contract between Producer A and Consumer B
-contract = EnergyTradingContract(blockchain, "Producer A", "Consumer B", energy_amount=100, price_per_unit=5, delivery_time=time.time() + 5)
+contract = EnergyTradingContract(blockchain, "Producer A", "Consumer B", energy_amount=100, base_price_per_unit=5, delivery_time=time.time() + 5)
 
+# Initiating the Trade with dynamic pricing
 contract.initiate_trade()
-time.sleep(5)  # Wait for the delivery time to pass
+
+# Continuously update the price until delivery
+contract.update_price_until_delivery()
+
+# Confirming Energy Delivery after some time
+time.sleep(1)  # Wait a little more to reach the delivery time
 contract.confirm_delivery()
 
 # If delivery is not confirmed after a certain period, penalise the producer
